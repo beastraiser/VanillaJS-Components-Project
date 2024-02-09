@@ -1,26 +1,4 @@
-class HeaderComponent extends HTMLElement {
-  constructor() {
-    super();
-  }
-  connectedCallback() {
-    this.innerHTML = `
-
-    <header class="navbar">
-
-    <a href="/index.html" class="logo-link">
-        <img src="/assets/css3-logo.svg" alt="Logo JS" class="logo" >
-        <img src="/assets/js-logo.svg" alt="Logo JS" class="logo" >
-        <img src="/assets/html5-logo.svg" alt="Logo JS" class="logo" >
-    </a>
-
-    <ul class="nav-links">
-        <li><a href="#">Login</a></li>
-    </ul>
-
-    <img src="/assets/login-logo.png" alt="login-logo" class="login">
-
-    <style>
-      :root {
+:root {
   --main-background-color: #2880ec;
   --text-color: rgb(247, 223, 30);
   --link-color: rgb(0, 187, 255);
@@ -107,16 +85,3 @@ ul {
     justify-self: end;
   }
 }
-    </style>
-    `;
-
-    const login = document.querySelector(".login");
-    const navLinks = document.querySelector(".nav-links");
-
-    login.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-    });
-  }
-}
-
-customElements.define("header-component", HeaderComponent);
