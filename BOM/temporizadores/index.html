@@ -4,10 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="../codebox.css" />
   </head>
   <body>
-    <script src="setTimeout.js"></script>
-    <script src="clearTimeout.js"></script>
-    <script src="setInterval.js"></script>
+    <h1>Temporizadores</h1>
+    <div class="codebox">
+      <code id="codebox1" class="code"
+        >let identificador = window.setInterval(() => { let respuesta =
+        window.confirm( "Tienes cita con el dentista. ¿Te lo sigo recordando?"
+        ); if (respuesta === false) { window.clearInterval(identificador);
+        console.log("Programa terminado."); } else { console.log("Seguir
+        recordando."); } }, 5000);</code
+      >
+      <button onclick="copiarCodigo('codebox1')">Copiar</button>
+    </div>
+    <div class="codebox">
+      <code id="codebox2" class="code"
+        >let t1 = new Date(); console.log(t1.getHours() + ":" + t1.getMinutes()
+        + ":" + t1.getSeconds()); identificador = window.setTimeout(() => { let
+        t2 = new Date(); console.log(t2.getHours() + ":" + t2.getMinutes() + ":"
+        + t2.getSeconds()); }, 5000); clearTimeout(identificador);
+        console.log("Programa terminado");</code
+      >
+      <button onclick="copiarCodigo('codebox2')">Copiar</button>
+    </div>
+    <div class="codebox">
+      <code id="codebox3" class="code"
+        >let tmp1 = new Date(); console.log( tmp1.getHours() + ":" +
+        tmp1.getMinutes() + ":" + tmp1.getSeconds() ); window.setTimeout(() => {
+        let tmp2 = new Date(); console.log( tmp2.getHours() + ":" +
+        tmp2.getMinutes() + ":" + tmp2.getSeconds() ); }, 5000);</code
+      >
+      <button onclick="copiarCodigo('codebox3')">Copiar</button>
+    </div>
+
+    <script>
+      function copiarCodigo(codebox) {
+        const copyText = document.getElementById(codebox);
+
+        navigator.clipboard.writeText(copyText.innerText);
+      }
+    </script>
   </body>
 </html>
