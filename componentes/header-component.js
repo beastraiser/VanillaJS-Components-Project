@@ -7,17 +7,17 @@ class HeaderComponent extends HTMLElement {
 
     <header class="navbar">
 
-    <a href="/page.html" class="logo-link">
-        <img src="/assets/css3-logo.svg" alt="Logo JS" class="logo" >
-        <img src="/assets/js-logo.svg" alt="Logo JS" class="logo" >
-        <img src="/assets/html5-logo.svg" alt="Logo JS" class="logo" >
+    <a href="./page.html" class="logo-link">
+        <img src="./assets/css3-logo.svg" alt="Logo JS" class="logo" >
+        <img src="./assets/js-logo.svg" alt="Logo JS" class="logo" >
+        <img src="./assets/html5-logo.svg" alt="Logo JS" class="logo" >
     </a>
 
     <ul class="nav-links">
         <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript" id="docLink" target="_blank" rel="noopener noreferrer">Documentación Oficial</a></li>
     </ul>
 
-    <img src="/assets/login-logo.png" alt="login-logo" class="login">
+    <img src="./assets/login-logo.png" alt="login-logo" class="login">
 
     <style>
       :root {

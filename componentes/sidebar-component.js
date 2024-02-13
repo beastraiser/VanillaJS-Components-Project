@@ -5,41 +5,41 @@ class SidebarComponent extends HTMLElement {
         
         <div class="menu" data-submenu="file-menu">
           <div class="menu-item">
-            <img src = "../assets/file.png" alt = ".js logo" class = "menu-icon" />
+            <img src = "./assets/file.png" alt = ".js logo" class = "menu-icon" />
             <span class="menu-text">BOM</span>
           </div>
           
           <div class="sub-menu" id="file-menu">
-            <div class="sub-menu-item" data-src = "../BOM/bom-introduccion.html">Intoducción</div>
-            <div class="sub-menu-item" data-src = "../BOM/bom-objeto-window.html">Objeto window</div>
-            <div class="sub-menu-item" data-src = "../BOM/bom-objeto-navigator.html">Objeto navigator</div>
-            <div class="sub-menu-item" data-src = "../BOM/bom-objeto-screen.html">Objeto screen</div>
-            <div class="sub-menu-item" data-src = "../BOM/bom-objeto-location.html">Objeto location</div>
-            <div class="sub-menu-item" data-src = "../BOM/bom-objeto-history.html">Objeto history</div>
+            <div class="sub-menu-item" data-src = "./BOM/bom-introduccion.html">Intoducción</div>
+            <div class="sub-menu-item" data-src = "./BOM/bom-objeto-window.html">Objeto window</div>
+            <div class="sub-menu-item" data-src = "./BOM/bom-objeto-navigator.html">Objeto navigator</div>
+            <div class="sub-menu-item" data-src = "./BOM/bom-objeto-screen.html">Objeto screen</div>
+            <div class="sub-menu-item" data-src = "./BOM/bom-objeto-location.html">Objeto location</div>
+            <div class="sub-menu-item" data-src = "./BOM/bom-objeto-history.html">Objeto history</div>
             <div class="sub-menu-item nested" data-submenu="nested-menu" data-src = "">
               <span class="menu-text">Ejemplos</span>
             </div>
             <div class="sub-menu">
-              <div class="sub-menu-item" data-src = "../BOM/windows-methods/index.html">Windows methods</div>
-              <div class="sub-menu-item" data-src = "../BOM/camara/index.html">Cámara</div>
-              <div class="sub-menu-item" data-src = "../BOM/temporizadores/index.html">Temporizadores</div>
+              <div class="sub-menu-item" data-src = "./BOM/windows-methods/index.html">Windows methods</div>
+              <div class="sub-menu-item" data-src = "./BOM/camara/index.html">Cámara</div>
+              <div class="sub-menu-item" data-src = "./BOM/temporizadores/index.html">Temporizadores</div>
             </div>
           </div>
 
           <div class="menu-item">
-            <img src = "../assets/file.png" alt = ".js logo" class = "menu-icon" />
+            <img src = "./assets/file.png" alt = ".js logo" class = "menu-icon" />
             <span class="menu-text">DOM</span>
           </div>
           
           <div class="sub-menu" id="file-menu">
-            <div class="sub-menu-item" data-src = "../DOM/dom-intro.html">Intoducción</div>
+            <div class="sub-menu-item" data-src = "./DOM/dom-intro.html">Intoducción</div>
             <div class="sub-menu-item nested" data-submenu="nested-menu"  data-src = "">
               <span class="menu-text">Proyectos</span>
             </div>
             <div class="sub-menu">
-              <div class="sub-menu-item" data-src = "../DOM/gid-scroll-resizable-side-bar-clase/index.html">Grid scroll resizable side bar</div>
-              <div class="sub-menu-item" data-src = "../DOM/form/index.html">Validación de formularios</div>
-              <div class="sub-menu-item" data-src = "../DOM/base-juego-adivinanza-clase/index.html">Adivia el número</div>
+              <div class="sub-menu-item" data-src = "./DOM/gid-scroll-resizable-side-bar-clase/index.html">Grid scroll resizable side bar</div>
+              <div class="sub-menu-item" data-src = "./DOM/form/index.html">Validación de formularios</div>
+              <div class="sub-menu-item" data-src = "./DOM/base-juego-adivinanza-clase/index.html">Adivia el número</div>
             </div>
           </div>
         </div>

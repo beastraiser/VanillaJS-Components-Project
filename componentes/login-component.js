@@ -152,7 +152,7 @@ class LoginComponent extends HTMLElement {
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,100}$/;
       if (!contrasenyaPattern.test(contrasenyaEntrada.value)) {
         contrasenyaError.textContent =
-          "Por favor, introduce una contraseña valida, debe tener entre 8 y 100 caracteres, al menos una letra mayúscula, una letra minúscula, un número y un caracter especial";
+          "Por favor, introduce una contraseña valida, debe tener entre 8 y 100 caracteres, al menos una letra mayúscula, una letra minúscula, un número y un caracter especial (@$!%*?&)";
         contrasenyaError.classList.add("error-message");
         verificado.push(false);
       } else {
@@ -162,13 +162,12 @@ class LoginComponent extends HTMLElement {
       }
 
       //Si todos los campos son correctos, enviar el formulario
-      if (
-        verificado.includes(false) === false &&
-        validNames.includes(entradaNombre.value)
-      ) {
-        window.location.href = "./page.html";
-      } else {
-        alert("Usuario no autorizado");
+      if (verificado.includes(false) === false) {
+        if (validNames.includes(entradaNombre.value)) {
+          window.location.href = "./page.html";
+        } else {
+          alert("Usuario no autorizado");
+        }
       }
     });
   }
