@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sección Lateral con Barra de Desplazamiento</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: auto 10px auto;
+        /* Columna auto para el sidebar, 10px para el control de redimensionamiento y auto para el contenido */
+
+        /* Divide en tres columnas: primera barra lateral, contenido, segunda barra lateral */
+        background-color: #f0f0f0;
+        overflow: hidden;
+      }
+
+      .sidebar {
+        background-color: #333;
+        color: white;
+        overflow-y: scroll;
+      }
+
+      .sidebar {
+        /* max-width: 15rem;*/
+        /* SI ESTA PROPIEDAD ESTÁTICA ESTÁ ACTIVA NO DEJARÍA MODIFICAR EL SIDE BAR CON JAVASCRIPT */
+        background-color: #333;
+        color: white;
+        max-height: 100vh;
+        /* Establece la altura máxima del sidebar al 100% de la altura de la ventana (viewport height, vh) */
+      }
+
+      .menu {
+        list-style: none;
+        padding: 0;
+      }
+
+      .menu li {
+        padding: 10px;
+      }
+
+      .menu a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .content {
+        overflow-y: auto;
+
+        max-height: 100vh;
+        width: 100%;
+        /* SUPER IMPORTANTE MANEJAR LA MEDIDA RELATIVA DEL VIEWPORT Y NO PIXELES */
+      }
+
+      .resize-handle {
+        cursor: col-resize;
+        background-color: #f0f0f0; /* Ancho del control de redimensionamiento */
+        transition: background-color 0.3s; /* Agrega la transición para el color de fondo */
+      }
+
+      /* Agrega este estilo CSS para el color de fondo cuando se pase el cursor sobre el div de redimensionamiento */
+      .resize-handle:hover {
+        background-color: rgb(0, 157, 255);
+        /* Cambia esto al color que desees */
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <nav class="sidebar" id="sidebar">
+        <ul class="menu">
+          <li><a href="#">Enlace 1</a></li>
+          <li><a href="#">Enlace 2</a></li>
+          <li><a href="#">Enlace 3</a></li>
+          <li><a href="#">Enlace 4</a></li>
+          <li><a href="#">Enlace 5</a></li>
+          <li><a href="#">Enlace 6</a></li>
+          <li><a href="#">Enlace 7</a></li>
+          <li><a href="#">Enlace 8</a></li>
+          <li><a href="#">Enlace 9</a></li>
+          <li><a href="#">Enlace 9</a></li>
+          <li><a href="#">Enlace 9</a></li>
+          <li><a href="#">Enlace 9</a></li>
+          <li><a href="#">Enlace 9</a></li>
+          <li><a href="#">Enlace 9</a></li>
+          <li><a href="#">Enlace 9</a></li>
+          <li><a href="#">Enlace 9</a></li>
+          <li><a href="#">Enlace 9</a></li>
+          <li><a href="#">Enlace 9</a></li>
+          <li><a href="#">Enlace 9</a></li>
+          <li><a href="#">Enlace 9</a></li>
+          <li><a href="#">Enlace 9</a></li>
+          <li><a href="#">Enlace 9</a></li>
+          <li><a href="#">Enlace 9</a></li>
+          <li><a href="#">Enlace 9</a></li>
+        </ul>
+      </nav>
+
+      <div id="resize-handle" class="resize-handle"></div>
+
+      <main class="content" id="content">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
+          doloribus delectus architecto aliquam in ducimus est, minima ipsum
+          veniam laudantium vero eos doloremque amet, iure nihil laborum!
+          Quibusdam, facilis autem!
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
+          doloribus delectus architecto aliquam in ducimus est, minima ipsum
+          veniam laudantium vero eos doloremque amet, iure nihil laborum!
+          Quibusdam, facilis autem!
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
+          doloribus delectus architecto aliquam in ducimus est, minima ipsum
+          veniam laudantium vero eos doloremque amet, iure nihil laborum!
+          Quibusdam, facilis autem!
+        </p>
+      </main>
+    </section>
+
+    <script>
+      //Capturo los elementos HTML
+      const sidebar = document.getElementById("sidebar");
+      const content = document.getElementById("content");
+      const resizeHandle = document.getElementById("resize-handle");
+
+      let isResizing = false;
+
+      //De aquí recogemos la propiedad que establece el width del sidebar: offsetWidth
+      console.log("propiedades del sidebar: ", sidebar);
+
+      //Guardamos esa propiedad en una variable
+      let initialSidebarWidth = sidebar.offsetWidth;
+
+      //Definimos el ancho maximo del sidebar (70% de la anchura de la ventana)
+      const maxSidebarWidth = window.innerWidth * 0.7;
+      const minSidebarWidth = window.innerWidth * 0.1;
+
+      //pasamos por parámetro el propio objeto del evento, que contiene varias propiedades
+      resizeHandle.addEventListener("mousedown", (e) => {
+        isResizing = true;
+
+        e.preventDefault(); //evitar el comportamiento por defecto del navegador(en este caso deja de seleccionar el texto mientras se deja pulsado el ratón)
+
+        const startX = e.clientX; //posición inicial del ratón
+
+        //Aplicamos un evento al documento que se dispara cuando se mueve el ratón
+        document.addEventListener("mousemove", (e) => {
+          if (!isResizing) return;
+
+          //Si el ratón se mueve, calculamos la distancia entre el punto inicial (startX) y el nuevo punto (e.clientX)
+          const deltaX = e.clientX - startX;
+
+          let newSidebarWidth = initialSidebarWidth + deltaX;
+
+          if (newSidebarWidth > maxSidebarWidth) {
+            newSidebarWidth = maxSidebarWidth;
+          } else if (newSidebarWidth < minSidebarWidth) {
+            newSidebarWidth = minSidebarWidth;
+          }
+
+          sidebar.style.width = `${newSidebarWidth}px`;
+
+          /* sidebar.style.width = `${
+      newSidebarWidth > maxSidebarWidth
+        ? maxSidebarWidth
+        : newSidebarWidth < minSidebarWidth
+        ? minSidebarWidth
+        : newSidebarWidth
+    }px`; //Lo mismo de arriba pero con una ternaria */
+        });
+
+        document.addEventListener("mouseup", () => {
+          isResizing = false;
+
+          //Si el ratón se suelta, volvemos a la anchura inicial, que se actualiza con la nueva anchura(sidebar.offsetWidth)
+          initialSidebarWidth = sidebar.offsetWidth;
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,45 +1,57 @@
 class MainSectionComponent extends HTMLElement {
-    connectedCallback() {
-      this.innerHTML = `
+  connectedCallback() {
+    this.innerHTML = `
         <section class = "main-section-component">
-          <article id="intro">
-            <h2>Introducción</h2>
-            <p>La programación orientada a componentes es un paradigma que...</p>
-            <!-- Contenido explicativo -->
-          </article>
-          <article id="concepts">
-            <h2>Conceptos Básicos</h2>
-            <p>Algunos conceptos clave de la programación orientada a componentes son...
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-            Nostrum voluptate deserunt perferendis dignissimos dicta quos aliquid
-             consequuntur tempore! Fugit praesentium eligendi at labore deserunt quasi 
-             saepe vel facere quisquam fuga?Lorem ipsum, dolor sit amet consectetur adipisicing 
-             elit. Nostrum voluptate deserunt perferendis dignissimos dicta quos aliquid consequuntur 
-             tempore! Fugit praesentium eligendi at labore deserunt quasi saepe vel facere quisquam 
-             fuga?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum voluptate deserunt 
-             perferendis dignissimos dicta quos aliquid consequuntur tempore! Fugit praesentium eligendi 
-             at labore deserunt quasi saepe vel facere quisquam fuga?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum voluptate deserunt perferendis dignissimos dicta quos aliquid consequuntur tempore! Fugit praesentium eligendi at labore deserunt quasi saepe vel facere quisquam fuga?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum voluptate deserunt perferendis dignissimos dicta quos aliquid consequuntur tempore! Fugit praesentium eligendi at labore deserunt quasi saepe vel facere quisquam fuga?
-            
-            
-            </p>
-            <!-- Contenido explicativo -->
-          </article>
-          <!-- ... Otros artículos de la documentación -->
+          <iframe id = "iframe" src= "">Cargando...</iframe>
         </section>
         
         <style>
-        .main-section-component {
-          grid-area: main;
-          width: 100%;
-          height: 100vh;
-          background-color: #2c3e50;
-          overflow-y: auto  ; /* Agregar barra de desplazamiento vertical */
-        }
+          :root {
+  --main-background-color: #2880ec;
+  --text-color: rgb(247, 223, 30);
+  --link-color: rgb(0, 187, 255);
+  --link-hover-color: #555;
+  --navbar-color: #000000;
+}
+.main-section-component {
+  height: 100vh;
+  grid-area: main;
+  display: grid;
+  place-content: center;
+  overflow-y: auto;
+  background: linear-gradient(
+    135deg,
+    rgb(14, 139, 222) 50%,
+    rgb(255, 102, 42) 50%
+  );
+}
+iframe {
+  width: 50vw;
+  height: 80vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: #000000 1rem inset;
+  padding: 0.5rem;
+}
+
+@media (width <= 768px) {
+  iframe {
+    width: 80vw;
+  }
+}
         </style>
 
       `;
-    }
+
+    const subMenuItems = document.querySelectorAll(".sub-menu-item");
+
+    subMenuItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const iframe = document.getElementById("iframe");
+        const newSrc = item.getAttribute("data-src");
+        iframe.src = newSrc;
+      });
+    });
   }
-  
-  window.customElements.define("main-section-component", MainSectionComponent);
-  
+}
+
+window.customElements.define("main-section-comp", MainSectionComponent);

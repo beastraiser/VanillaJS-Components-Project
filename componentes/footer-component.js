@@ -1,27 +1,37 @@
 class FooterComponent extends HTMLElement {
-    connectedCallback() {
-      this.innerHTML = `
+  connectedCallback() {
+    this.innerHTML = `
         <footer>
-          <p>&copy; 2024 - Documentación de Programación Orientada a Componentes</p>
+          <div class = "footer-txt">&copy; 2024 - Documentación de Programación Orientada a Componentes</div>
         </footer>
 
         <style> 
-        footer-component {
-          grid-area: footer;
-          background-color: #cccccc;
-        }     
+        :root {
+  --main-background-color: #2880ec;
+  --text-color: rgb(247, 223, 30);
+  --link-color: rgb(0, 187, 255);
+  --link-hover-color: #555;
+  --navbar-color: #000000;
+}
+footer-comp {
+  grid-area: footer;
+  display: grid;
+  place-content: center;
+  background-color: var(--navbar-color);
+  color: var(--text-color);
+  min-height: 10vh;
+}
 
-        p {
-          /* Estilos del texto para el encabezado */
-          font-size: 2.5vw; /* Tamaño de fuente relativo al ancho de la ventana */
-          max-width: 100%; /* Asegura que el texto no exceda el ancho del contenedor */
-        }
+.footer-txt {
+  font-family: "Sixtyfour", sans-serif;
+  font-size: 1rem;
+  text-align: center;
+}
 
         </style>
 
       `;
-    }
   }
-  
-  window.customElements.define("footer-component", FooterComponent);
-  
+}
+
+window.customElements.define("footer-comp", FooterComponent);

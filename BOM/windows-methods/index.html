@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="openWindow()">Abrir pestaña</button>
+    <button onclick="closeWindow()">Cerrar pestaña</button>
+    <button onclick="moveWindow()">Mover pestaña</button>
+    <button onclick="resizeWindow()">Redimensionar pestaña</button>
+    <button onclick="scrollWindowBy()">Desplazar pestaña hacia abajo</button>
+    <button onclick="printPage()">Imprimir página</button>
+    <button onclick="promptWindow()">Ventana emergente</button>
+    <button onclick="blurWindow()">Desenfocar ventana</button>
+    <button onclick="scrollToWindow()">Desplazar pestaña abajo</button>
+    <button onclick="stopWindow()">Detener pestaña</button>
+    <button onclick="confirmWindow()">Confirmar</button>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Gravida quis blandit
+      turpis cursus in hac habitasse. Erat nam at lectus urna duis convallis
+      convallis tellus id. Fringilla urna porttitor rhoncus dolor purus non enim
+      praesent elementum. Mauris cursus mattis molestie a iaculis. Sociis
+      natoque penatibus et magnis dis. Venenatis a condimentum vitae sapien. Leo
+      a diam sollicitudin tempor id eu nisl nunc mi. Integer enim neque volutpat
+      ac tincidunt. Quis auctor elit sed vulputate mi sit amet mauris. Mattis
+      aliquam faucibus purus in massa tempor. Purus ut faucibus pulvinar
+      elementum integer. Lectus urna duis convallis convallis tellus id interdum
+      velit laoreet. Cursus risus at ultrices mi tempus imperdiet nulla
+      malesuada pellentesque. In fermentum posuere urna nec tincidunt. Mattis
+      vulputate enim nulla aliquet. Aliquam purus sit amet luctus venenatis
+      lectus magna. Non curabitur gravida arcu ac. Fames ac turpis egestas sed
+      tempus urna et pharetra. Facilisis magna etiam tempor orci eu lobortis
+      elementum nibh. Donec ac odio tempor orci dapibus ultrices in iaculis.
+      Pharetra pharetra massa massa ultricies. Vulputate ut pharetra sit amet
+      aliquam. Non arcu risus quis varius quam quisque id diam vel. Sit amet
+      commodo nulla facilisi nullam vehicula ipsum a arcu. Arcu dui vivamus arcu
+      felis bibendum ut tristique et egestas. In pellentesque massa placerat
+      duis ultricies lacus sed turpis. Nibh ipsum consequat nisl vel. Sem
+      fringilla ut morbi tincidunt augue. Tincidunt arcu non sodales neque.
+      Morbi blandit cursus risus at ultrices. Consectetur adipiscing elit
+      pellentesque habitant morbi tristique senectus et netus. Magna eget est
+      lorem ipsum dolor sit. Eu non diam phasellus vestibulum. Et ligula
+      ullamcorper malesuada proin libero nunc consequat interdum. Quisque
+      egestas diam in arcu cursus euismod quis viverra. Sagittis eu volutpat
+      odio facilisis mauris sit amet massa vitae. Venenatis urna cursus eget
+      nunc scelerisque viverra. Ac placerat vestibulum lectus mauris. Ut tortor
+      pretium viverra suspendisse potenti nullam. Amet risus nullam eget felis.
+      Quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus mattis.
+      Diam quis enim lobortis scelerisque. Viverra justo nec ultrices dui sapien
+      eget. Tristique magna sit amet purus gravida quis blandit turpis. Amet
+      consectetur adipiscing elit pellentesque habitant. Nunc sed id semper
+      risus in hendrerit gravida rutrum. Malesuada fames ac turpis egestas.
+      Dolor morbi non arcu risus quis varius quam quisque id. Nisi est sit amet
+      facilisis magna etiam tempor orci eu. Feugiat nibh sed pulvinar proin
+      gravida hendrerit lectus. Leo a diam sollicitudin tempor. Iaculis nunc sed
+      augue lacus viverra vitae congue eu consequat. In iaculis nunc sed augue
+      lacus viverra vitae congue. Eget egestas purus viverra accumsan. Massa sed
+      elementum tempus egestas sed. Vitae aliquet nec ullamcorper sit amet risus
+      nullam. Tellus mauris a diam maecenas sed enim. Aliquam vestibulum morbi
+      blandit cursus risus at ultrices. Turpis tincidunt id aliquet risus
+      feugiat. Sed nisi lacus sed viverra tellus in hac habitasse platea.
+      Scelerisque fermentum dui faucibus in ornare quam viverra orci. Diam
+      maecenas ultricies mi eget mauris pharetra et ultrices. Etiam non quam
+      lacus suspendisse faucibus interdum posuere lorem. In pellentesque massa
+      placerat duis. Bibendum ut tristique et egestas quis ipsum suspendisse
+      ultrices gravida. Consequat semper viverra nam libero justo laoreet sit
+      amet cursus. Lorem donec massa sapien faucibus et. Quis varius quam
+      quisque id diam vel quam elementum. Fringilla urna porttitor rhoncus dolor
+      purus non. Convallis convallis tellus id interdum velit laoreet. Nunc mi
+      ipsum faucibus vitae aliquet nec ullamcorper sit amet. Integer eget
+      aliquet nibh praesent tristique magna. Neque vitae tempus quam
+      pellentesque. Nulla porttitor massa id neque aliquam vestibulum morbi
+      blandit cursus. Arcu felis bibendum ut tristique et egestas. Lobortis
+      scelerisque fermentum dui faucibus in ornare quam. Sit amet nisl suscipit
+      adipiscing bibendum.
+    </p>
+    <script>
+      var newWindow;
+
+      function openWindow() {
+        newWindow = window.open(
+          " ",
+          " ",
+          "width=500px, height=400px, left=50px, top=500px"
+        );
+      }
+
+      function closeWindow() {
+        newWindow.close();
+      }
+
+      function moveWindow() {
+        newWindow.focus();
+        newWindow.moveTo(500, 200);
+      }
+
+      function resizeWindow() {
+        newWindow.resizeTo(1000, 500);
+        newWindow.focus();
+      }
+
+      function scrollWindowBy() {
+        newWindow.focus();
+        newWindow.scrollBy(0, 100);
+      }
+
+      function printPage() {
+        newWindow.focus();
+        newWindow.print();
+      }
+
+      function promptWindow() {
+        newWindow.focus();
+        newWindow.prompt("Hola", "Hola");
+      }
+
+      function blurWindow() {
+        newWindow.blur();
+      }
+
+      function scrollToWindow() {
+        newWindow.focus();
+        newWindow.scrollTo(0, newWindow.document.body.scrollHeight); //Importante
+      }
+
+      function stopWindow() {
+        newWindow.focus();
+        newWindow.stop();
+      }
+
+      function confirmWindow() {
+        newWindow.focus();
+        newWindow.confirm("Hola");
+      }
+    </script>
+  </body>
+</html>

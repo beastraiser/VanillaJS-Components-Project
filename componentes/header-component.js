@@ -14,7 +14,7 @@ class HeaderComponent extends HTMLElement {
     </a>
 
     <ul class="nav-links">
-        <li><a href="#">Login</a></li>
+        <li><a href="../form.html" id="loginLink">Login</a></li>
     </ul>
 
     <img src="/assets/login-logo.png" alt="login-logo" class="login">
@@ -42,11 +42,9 @@ class HeaderComponent extends HTMLElement {
   top: 0;
 }
 
-.logo {
-  max-height: 100px;
-  max-width: auto;
-  height: 10vh;
-}
+  .logo {
+    height: 10vh;
+  }
 
 .logo-link {
   text-decoration: none;
@@ -105,11 +103,16 @@ ul {
   .login {
     display: block;
     justify-self: end;
+    height: 6vh;
+  }
+
+  .logo {
+  height: 6vh;
   }
 }
     </style>
     `;
-
+    //Mostrar el menú despegable en pantalla pequeña
     const login = document.querySelector(".login");
     const navLinks = document.querySelector(".nav-links");
 
@@ -119,4 +122,4 @@ ul {
   }
 }
 
-customElements.define("header-component", HeaderComponent);
+customElements.define("header-comp", HeaderComponent);

@@ -1,0 +1,269 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+@import url("https://fonts.google.com/specimen/Arvo");
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Arvo", sans-serif;
+}
+/* titulo con foto */
+.imagenS23 {
+  height: 45vh;
+  background-image: url(../assets/pagEspecs/portada_samsung.jpg);
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "titS23 ."
+    "titEspec .";
+  padding-left: 2rem;
+}
+.imagenS23,
+.titEspec {
+  color: white;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+.titS23 {
+  font-size: 2rem;
+  grid-area: titS23;
+  align-self: self-end;
+}
+.titEspec {
+  grid-area: titEspec;
+  align-self: self-start;
+}
+/* ----------------- */
+/* Grid especificaciones */
+.grid-especificacionesS23 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto 2rem auto;
+  grid-template-areas:
+    "proclabel pantlabel camlabel almaclabel"
+    ". . . ."
+    "proccar pantcar camcar almacar";
+  padding: 2%;
+  background-color: rgb(26, 62, 76);
+  color: white;
+}
+.label,
+.minilabel {
+  text-shadow: 0.1em 0.2em 0.25em black;
+}
+.minilabel {
+  font-weight: bold;
+}
+.label {
+  justify-self: center;
+  border-bottom: 1px ridge white;
+}
+.label.proc {
+  grid-area: proclabel;
+}
+.label.pant {
+  grid-area: pantlabel;
+}
+.label.cam {
+  grid-area: camlabel;
+}
+.label.alm {
+  grid-area: almaclabel;
+}
+.caracteristicas {
+  padding: 4%;
+}
+.caracteristicas.proc {
+  grid-area: proccar;
+}
+.caracteristicas.pant {
+  grid-area: pantcar;
+}
+.caracteristicas.cam {
+  grid-area: camcar;
+}
+.caracteristicas.alm {
+  grid-area: almacar;
+}
+/* ----------------- */
+/* titulo-foto comparacion */
+.comparacion {
+  height: 45vh;
+  background-image: url(../assets/pagEspecs/descarga.png);
+  background-size: cover;
+  background-position: left;
+  display: grid;
+  grid-template-columns: 2fr 1.5fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    ". titS23"
+    ". titEspec";
+  justify-items: center;
+}
+.comparacion {
+  color: rgb(15, 15, 15);
+  text-shadow: 1px 1px 2px rgb(128, 101, 118), 0 0 1em rgb(119, 143, 113),
+    0 0 0.2em rgb(119, 143, 113);
+}
+.titmodelos {
+  font-size: 2rem;
+  grid-area: titS23;
+  align-self: self-end;
+}
+.titComp {
+  grid-area: titEspec;
+  align-self: center;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.titComp span {
+  margin: 6%;
+}
+/* ----------------- */
+/* Grid comparaciones */
+.grid-comparacion {
+  display: grid;
+  grid-template-columns: 0.1fr 1.2fr 0.5fr 1fr 0.5fr 1fr;
+  grid-template-rows: auto repeat(3, 1fr);
+  grid-template-areas:
+    "label-modelo label-modelo label-procesador label-pantalla label-camara label-almacenamiento"
+    "label-modeloS23 img-modeloS23 datos-procesador-S23 datos-pantalla-S23 datos-camara-S23 datos-almacenamiento-S23"
+    "label-modeloS23p img-modeloS23p datos-procesador-S23p datos-pantalla-S23p datos-camara-S23p datos-almacenamiento-S23p"
+    "label-modeloS23Ultra img-modeloS23Ultra datos-procesador-S23Ultra datos-pantalla-S23Ultra datos-camara-S23Ultra datos-almacenamiento-S23Ultra";
+  padding: 2%;
+  background-color: rgb(26, 62, 76);
+  color: white;
+}
+.texto {
+  padding: 1em;
+}
+.texto.label-modeloS23,
+.texto.label-modeloS23p,
+.texto.label-modeloS23Ultra,
+.texto.label-camara,
+.texto.label-almacenamiento,
+.texto.label-pantalla,
+.texto.label-procesador,
+.texto.label-modelo {
+  align-self: center;
+  justify-self: center;
+  text-shadow: 0.1em 0.2em 0.25em black;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.texto.label-modeloS23,
+.texto.label-modeloS23p,
+.texto.label-modeloS23Ultra {
+  font-size: 1.6rem;
+  padding: 0;
+}
+.texto.datos-almacenamiento-S23p,
+.texto.datos-camara-S23p,
+.texto.datos-pantalla-S23p,
+.texto.datos-procesador-S23p,
+.img.label-modeloS23p,
+.texto.datos-almacenamiento-S23,
+.texto.datos-camara-S23,
+.texto.datos-pantalla-S23,
+.texto.datos-procesador-S23,
+.img.label-modeloS23,
+.texto.datos-almacenamiento-S23Ultra,
+.texto.datos-camara-S23Ultra,
+.texto.datos-pantalla-S23Ultra,
+.texto.datos-procesador-S23Ultra,
+.img.label-modeloS23Ultra {
+  border-top: 1px ridge white;
+  text-align: center;
+}
+.texto.label-modelo {
+  grid-area: label-modelo;
+}
+.texto.label-modeloS23 {
+  grid-area: label-modeloS23;
+}
+.texto.label-modeloS23p {
+  grid-area: label-modeloS23p;
+}
+.texto.label-modeloS23Ultra {
+  grid-area: label-modeloS23Ultra;
+}
+.img.label-modeloS23 {
+  grid-area: img-modeloS23;
+  background-image: url(../assets/pagEspecs/samsungs23.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.img.label-modeloS23p {
+  grid-area: img-modeloS23p;
+  background-image: url(../assets/pagEspecs/samsungs23mas.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.img.label-modeloS23Ultra {
+  grid-area: img-modeloS23Ultra;
+  background-image: url(../assets/pagEspecs/samsungs23u.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.texto.label-procesador {
+  grid-area: label-procesador;
+}
+.texto.label-pantalla {
+  grid-area: label-pantalla;
+}
+.texto.label-camara {
+  grid-area: label-camara;
+}
+.texto.label-almacenamiento {
+  grid-area: label-almacenamiento;
+}
+.texto.datos-procesador-S23 {
+  grid-area: datos-procesador-S23;
+}
+.texto.datos-procesador-S23p {
+  grid-area: datos-procesador-S23p;
+}
+.texto.datos-procesador-S23Ultra {
+  grid-area: datos-procesador-S23Ultra;
+}
+.texto.datos-pantalla-S23 {
+  grid-area: datos-pantalla-S23;
+}
+.texto.datos-pantalla-S23p {
+  grid-area: datos-pantalla-S23p;
+}
+.texto.datos-pantalla-S23Ultra {
+  grid-area: datos-pantalla-S23Ultra;
+}
+.texto.datos-camara-S23 {
+  grid-area: datos-camara-S23;
+}
+.texto.datos-camara-S23p {
+  grid-area: datos-camara-S23p;
+}
+.texto.datos-camara-S23Ultra {
+  grid-area: datos-camara-S23Ultra;
+}
+.texto.datos-almacenamiento-S23 {
+  grid-area: datos-almacenamiento-S23;
+}
+.texto.datos-almacenamiento-S23p {
+  grid-area: datos-almacenamiento-S23p;
+}
+.texto.datos-almacenamiento-S23Ultra {
+  grid-area: datos-almacenamiento-S23Ultra;
+}
+@media screen and (max-width: 740px) {
+  .grid-comparacion {
+    grid-template-areas:
+      "label-modelo label-modelo label-procesador label-pantalla label-camara label-almacenamiento"
+      "label-modeloS23 label-modeloS23 datos-procesador-S23 datos-pantalla-S23 datos-camara-S23 datos-almacenamiento-S23"
+      "label-modeloS23p label-modeloS23p datos-procesador-S23p datos-pantalla-S23p datos-camara-S23p datos-almacenamiento-S23p"
+      "label-modeloS23Ultra label-modeloS23Ultra datos-procesador-S23Ultra datos-pantalla-S23Ultra datos-camara-S23Ultra datos-almacenamiento-S23Ultra";
+  }
+}
