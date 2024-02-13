@@ -4,8 +4,38 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
     <title>Juego de adivinar el número</title>
+    <style>
+      body {
+        text-align: center;
+      }
+
+      h1 {
+        color: #333;
+        font-family: Arial, sans-serif;
+      }
+
+      input {
+        padding: 5px;
+        font-size: 16px;
+      }
+
+      button {
+        padding: 8px 12px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      #mensaje {
+        color: #333;
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        margin-top: 20px;
+      }
+    </style>
   </head>
 
   <body>
@@ -17,13 +47,80 @@
 
     <p id="mensaje"></p>
 
-    <!-- TAREA -->
-
     <h4>
       Cantidad de intentos:
       <p id="intentos-input">0</p>
     </h4>
 
-    <script type="module" src="./scripts.js"></script>
+    <script>
+      const numeroSecreto = randomNumber(1, 100);
+      /* console.log(numeroSecreto); */
+
+      //Guardamos los elementos que vamos a utilizar en constantes
+      const numberInput = document.getElementById("numeroEntrada");
+      const intentosText = document.getElementById("intentos-input");
+      const comprobarButton = document.getElementById("button");
+      const mensaje = document.getElementById("mensaje");
+      //Iniciamos un array para posteriormente comprobar si un número ha sido introducido previamente
+      let numerosIntroducidos = [];
+
+      //Añadimos un evento al botón para cada click
+      comprobarButton.addEventListener("click", () => {
+        //Guardamos la comprobación de si el input es igual al numero secreto
+        let acierto = numeroSecreto === Number(numberInput.value);
+
+        //Comprobamos si el input es un número válido y si ha sido introducido previamente
+        if (!checkInputNumber(numberInput.value, 1, 100)) {
+          mensaje.textContent = "Número incorrecto!";
+          mensaje.style.color = "red";
+          return; //Este return actual igual que un break
+        } else if (
+          checkRepeatedValues(Number(numberInput.value), numerosIntroducidos)
+        ) {
+          mensaje.textContent = "Número ya introducido!";
+          mensaje.style.color = "red";
+          return; //Este return actual igual que un break
+        }
+
+        //Si el código llega a este punto es porque el input es correcto, por lo que lo añadimos al array
+        numerosIntroducidos.push(Number(numberInput.value));
+        /* console.log(numerosIntroducidos); */
+
+        //Cambiamos el contenido del mensaje dependiendo del valor de acierto y de si el input es mayor o menor
+        mensaje.textContent = acierto
+          ? "¡Enhorabuena, has acertado!"
+          : numeroSecreto < Number(numberInput.value)
+          ? "Demasiado alto"
+          : "Demasiado bajo";
+
+        //Hacemos lo mismo con el color del mensaje accediendo a su estilo
+        mensaje.style.color = acierto
+          ? "green"
+          : numeroSecreto < Number(numberInput.value)
+          ? "orange"
+          : "blue";
+
+        //Igualamos el valor disabled al de acierto, cercionandonos de que si acierto pasa a true, tambien se desactiven el input y el boton
+        comprobarButton.disabled = acierto;
+        numberInput.disabled = acierto;
+
+        //Incrementamos el numero de intentos
+        intentosText.textContent = Number(intentosText.textContent) + 1;
+      });
+
+      //Funciones
+
+      function randomNumber(from, to) {
+        return Math.trunc(Math.random() * to + from);
+      }
+
+      function checkInputNumber(n, min, max) {
+        return n >= min && n < max && !isNaN(n);
+      }
+
+      function checkRepeatedValues(n, array) {
+        return array.includes(n);
+      }
+    </script>
   </body>
 </html>
