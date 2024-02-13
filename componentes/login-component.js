@@ -109,6 +109,8 @@ class LoginComponent extends HTMLElement {
       }
     </style>
       `;
+    const validNames = ["Alexandru", "Julio", "Alba"];
+
     document.forms[0].addEventListener("submit", (e) => {
       e.preventDefault();
 
@@ -160,8 +162,13 @@ class LoginComponent extends HTMLElement {
       }
 
       //Si todos los campos son correctos, enviar el formulario
-      if (verificado.includes(false) === false) {
+      if (
+        verificado.includes(false) === false &&
+        validNames.includes(entradaNombre.value)
+      ) {
         window.location.href = "./page.html";
+      } else {
+        alert("Usuario no autorizado");
       }
     });
   }
